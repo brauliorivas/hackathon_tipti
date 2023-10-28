@@ -7,9 +7,10 @@ function StoreHandler(props) {
 
     return (
         <>
-            <h1>Store</h1>
-            <p>Store ID: {storeId}</p>
-            <Store storeId={storeId} />
+            <h1>Sukasa</h1> 
+            <div className="store-wrapper">
+                <Store storeId={storeId} />
+            </div>
         </>
     )
 }

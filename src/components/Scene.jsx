@@ -16,8 +16,24 @@ function Scene({ storeId }) {
         <Spline
             scene={`https://prod.spline.design/${storeId}/scene.splinecode`} 
             onLoad={onLoad}
+            // onMouseDown={() => {console.log('ghi')}}
         />
     )
+
+    // function onMouseDown(e) {
+    //     if (e.target.name === 'Cube') {
+    //         console.log('I have been clicked!');
+    //     }
+    // }
+
+    // return (
+    //     <div>
+    //         <Spline
+    //             scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
+    //             onMouseDown={onMouseDown}
+    //         />
+    //     </div>
+    // );
 }
 
 export default Scene;
