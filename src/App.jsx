@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import Home from "./routes/Home";
 import Explore from "./routes/Explore";
 import ChatBot from "./routes/ChatBot";
+import Store from "./routes/Store";
+import StoreHandler from "./util/StoreHandler";
 
 function App() {
   return (
@@ -14,6 +16,7 @@ function App() {
         <Route path="/account" element={<h1>Cuenta</h1>} />
         <Route path="/chatbot" element={<ChatBot />} />
         <Route path="/cart" element={<h1>Carrito</h1>} />
+        <Route path="/store/:storeId" element={<StoreHandler />}/>
       </Routes>
     </>
   )

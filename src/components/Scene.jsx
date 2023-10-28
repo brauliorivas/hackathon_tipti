@@ -1,7 +1,7 @@
 import Spline from '@splinetool/react-spline';
 import { useRef } from 'react';
 
-function Scene() {
+function Scene({ storeId }) {
     const object = useRef();
 
     function onLoad(spline) {
@@ -13,8 +13,8 @@ function Scene() {
     }
 
     return (
-        <Spline 
-            scene="https://prod.spline.design/z23hZXmO7vP12YWI/scene.splinecode" 
+        <Spline
+            scene={`https://prod.spline.design/${storeId}/scene.splinecode`} 
             onLoad={onLoad}
         />
     )

@@ -3,7 +3,11 @@ import Scene from "../components/Scene";
 function Explore() {
     return (
         <>
-            <Scene />
+            <ul>
+                <li>
+                    
+                </li>
+            </ul>
         </>
     )
 }
