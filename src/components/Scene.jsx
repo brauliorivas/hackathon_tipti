@@ -1,23 +1,39 @@
 import Spline from '@splinetool/react-spline';
-import { useRef } from 'react';
+import { useState, useEffect } from 'react';
+import SupabaseController from '../util/api/supabase/database';
+import ProductMenu from './ProductMenu';
+import '../styles/Scene.css';
 
 function Scene({ storeId }) {
-    const object = useRef();
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const supabaseController = SupabaseController();
 
-    function onLoad(spline) {
-        const obj = spline.findObjectById('e138b12f-caa8-4612-ac8e-684b6b7e0e6c');
+    function onMouseUp(e) {
+        async function getProducts() {
+            const products = await supabaseController.getProducts();
+            const productSupabaseId = e.target.id;
 
-        object.current = obj;
-
-        console.log(object.current);
+            const product = products.find(product => product.supabase_id === productSupabaseId)
+            setSelectedProduct(product);
+        }
+        getProducts();
     }
 
     return (
-        <Spline
-            scene={`https://prod.spline.design/${storeId}/scene.splinecode`} 
-            onLoad={onLoad}
-        />
+        <div className='game'>
+            { selectedProduct && 
+                <div className='product-menu'>
+                    <ProductMenu product={selectedProduct} setSelectedProduct={setSelectedProduct}/> 
+                </div>
+            }
+            <Spline
+                scene={`https://prod.spline.design/${storeId}/scene.splinecode`} 
+                onMouseUp={onMouseUp}
+                className='spline'
+            />
+        </div>
     )
+
 }
 
 export default Scene;

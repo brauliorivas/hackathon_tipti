@@ -1,0 +1,19 @@
+.product-modal {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quantity-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    margin: 10px 0;
+}

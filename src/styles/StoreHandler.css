@@ -1,0 +1,17 @@
+@media (orientation: landscape) {
+    .store-wrapper {
+        height: 100vh;
+        width: 100vw;
+    }
+}
+
+@media (orientation: portrait) {
+    .store-wrapper {
+        width: 100vw;
+        height: 70vh;
+    }
+}
+
+.store {
+    
+}

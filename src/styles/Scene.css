@@ -1,0 +1,16 @@
+.game {
+
+}
+
+.product-menu {
+    position: absolute;
+    z-index: 1;
+    left: 45%;
+    top: 45%;
+    width: 30vw;
+    height: 30vh;
+}
+
+.spline {
+
+}
