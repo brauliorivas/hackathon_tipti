@@ -6,6 +6,8 @@ import ChatBot from "./routes/ChatBot";
 import Store from "./routes/Store";
 import StoreHandler from "./util/StoreHandler";
 
+import Spline from '@splinetool/react-spline';
+
 function App() {
   return (
     <>
