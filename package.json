@@ -18,11 +18,13 @@
     "@splinetool/runtime": "^0.9.490",
     "@supabase/supabase-js": "^2.38.4",
     "@types/three": "^0.158.0",
+    "memfs": "^4.6.0",
     "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.17.0",
     "three": "^0.158.0",
+    "vite-plugin-node-polyfills": "^0.15.0",
     "weaviate-ts-client": "^1.5.0"
   },
   "devDependencies": {
