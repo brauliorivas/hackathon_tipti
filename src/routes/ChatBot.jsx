@@ -1,14 +1,23 @@
-import { useEffect, useState } from "react";
-import promptQuery from "../util/api/langchain/client";
+import { useState } from "react";
+import generateText from "../util/api/chat";
 
 function ChatBot() {
-    const [response, setResponse] = useState(null);
-    
+    const [response, setResponse] = useState('');
+    const [chatResponse, setChatResponse] = useState('');
 
+    async function getResponse(prompt) {
+        const res = await generateText(prompt);
+        setChatResponse(res);
+    }
+    
     return (
         <>
             <h1>ChatBot</h1>
-            { response && <p>{response}</p> }
+            <input type="text" value={response} onChange={e => setResponse(e.target.value)} />
+            <button onClick={() => getResponse(response)}>
+                Ask to ChatBot
+            </button>
+            {chatResponse && <p>{chatResponse}</p>}
         </>
     )
 

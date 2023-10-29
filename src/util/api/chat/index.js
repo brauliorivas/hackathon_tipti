@@ -1,0 +1,246 @@
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+    apiKey: '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',
+    dangerouslyAllowBrowser: true
+});
+
+export default async function generateText(prompt) {
+    let products = [
+        {
+            "product_id": 1,
+            "product_name": "pollo Mr. Pollo",
+            "section_id": 1,
+            "stock": 10,
+            "price": 3.5,
+            "photo": "mrpollo.png",
+            "tags": [
+                "pollo",
+                "mr.pollo",
+                "mr pollo",
+                "proteina"
+            ],
+            "supabase_id": "",
+            "detail": "Pollo Mr.pollo de peso promedio 2.5KG"
+        },
+        {
+            "product_id": 2,
+            "product_name": "lechuga crespa",
+            "section_id": 2,
+            "stock": 30,
+            "price": 0.5,
+            "photo": "lechuga_crespa.png",
+            "tags": [
+                "lechuga",
+                "crespa",
+                "fresco",
+                "verduras"
+            ],
+            "supabase_id": "",
+            "detail": "Lechuga crespa 200g"
+        },
+        {
+            "product_id": 3,
+            "product_name": "lavavajilla neutro",
+            "section_id": 3,
+            "stock": 5,
+            "price": 1,
+            "photo": "lavavajillas_neutro.png",
+            "tags": [
+                "lavavajillas",
+                "neutro",
+                "megamaxi"
+            ],
+            "supabase_id": "",
+            "detail": "lavavajillas neutro 650ML"
+        },
+        {
+            "product_id": 6,
+            "product_name": "pañolini",
+            "section_id": 4,
+            "stock": 25,
+            "price": 10,
+            "photo": "pañolini.png",
+            "tags": [
+                "pañolini",
+                "pañal",
+                "pañales",
+                "medi city"
+            ],
+            "supabase_id": "",
+            "detail": "Pañal pañolini"
+        },
+        {
+            "product_id": 8,
+            "product_name": "cepillo dental colgate",
+            "section_id": 5,
+            "stock": 55,
+            "price": 0.5,
+            "photo": "cepillo_colgate.png",
+            "tags": [
+                "cepillo",
+                "colgate",
+                "megamaxi"
+            ],
+            "supabase_id": "",
+            "detail": "Cepillo dental colgate, una unidad"
+        },
+        {
+            "product_id": 5,
+            "product_name": "Refrigeradora Ri-395 Indurama",
+            "section_id": 10,
+            "stock": 10,
+            "price": 762.1,
+            "photo": "https://statics.tipti.market/product-media/54977d55-452a-41cd-8b23-30074e4937c3.jpg",
+            "tags": [
+                "Indurama",
+                "cocina",
+                "refrigerador",
+                "modelo RI-395 CD QUA",
+                "capacidad 12 pies cúbicos",
+                "2 puertas",
+                "color cromo",
+                "luz interior",
+                "3 estantes de vidrio templado",
+                "portahuevos",
+                "control de temperatura analógico",
+                "dispensador de agua",
+                "dispensador de hielo",
+                "días calurosos"
+            ],
+            "supabase_id": "716b952c-1cb2-4d18-81fc-d914592a4221",
+            "detail": "Indurama tiene todo lo que necesitas para tu cocina, hoy con su modelo de refrigerador RI- 395 CD QUA, la cual cuenta con una capacidad de 12 pies cúbicos, cuenta con un diseño de 2 puertas en color croma, además posee luz interior, 3 estantes de vidrio templado, portahuevos y control de temperatura analógico, posee también dispensador de agua y hielo en puerta para esos días calurosos"
+        },
+        {
+            "product_id": 7,
+            "product_name": "maga orgánica",
+            "section_id": 2,
+            "stock": 1,
+            "price": 7,
+            "photo": "maga_organica.png",
+            "tags": [
+                "maga organica",
+                "maga",
+                "organica",
+                "suplemento",
+                "megamaxi"
+            ],
+            "supabase_id": "",
+            "detail": "Maga orgánica"
+        },
+        {
+            "product_id": 9,
+            "product_name": "chancho Mr. Chancho",
+            "section_id": 1,
+            "stock": 4,
+            "price": 9,
+            "photo": "mrchancho.png",
+            "tags": [
+                "chancho",
+                "cerdo",
+                "mr.chancho",
+                "megamaxi"
+            ],
+            "supabase_id": "",
+            "detail": "Chancho Mr. Chancho"
+        },
+        {
+            "product_id": 10,
+            "product_name": "VASAGLE Mesa de Barra, con 2 Taburetes de Barra, Mesa de Desayuno y Sillas, Mostrador de Cocina con Sillas, para Cocina, Sala, Salón, Sala de Fiestas, Industrial, Marrón Rústico LBT15X",
+            "section_id": 10,
+            "stock": 20,
+            "price": 101.7,
+            "photo": "https://m.media-amazon.com/images/I/71a8QTh8P9L._AC_SL1500_.jpg",
+            "tags": [
+                "juego",
+                "unidades exigentes",
+                "mesa de bar",
+                "taburetes de bar",
+                "acabado marrón rústico",
+                "alta calidad",
+                "cocina",
+                "sala de juegos",
+                "sala de estar",
+                "marco de hierro negro",
+                "reposapiés",
+                "desayuno para dos",
+                "superficie de 120 x 60 cm",
+                "rollos",
+                "fiambres",
+                "zumo de naranja",
+                "taburetes para 4 personas",
+                "ajuste perfecto",
+                "sillas de bar",
+                "mostrador de la barra",
+                "ahorro de espacio",
+                "instalación sin obstáculos",
+                "montaje rápido",
+                "montaje sencillo",
+                "serie ALINRU",
+                "rincón para el desayuno"
+            ],
+            "supabase_id": "1a73d32e-533a-460a-928b-5aed29650d72",
+            "detail": "Un juego para unidades exigentes: Una mesa de bar y 2 taburetes de bar con un acabado marrón rústico de Alta calidad - una maravillosa adición a su cocina, sala de juegos o sala de estar. El marco de hierro negro no sólo constituye un atractivo contraste con el tono de la madera, sino que también sirve como un práctico reposapiés\n    ¿Desayuno para dos? La mesa alta tiene una superficie de 120 x 60 cm sobre la que se pueden colocar fácilmente rollos, fiambres y zumo de naranja recién exprimido. Pida 2 taburetes más para disfrutar de una mesa de desayuno para 4 personas\n    Ajuste perfecto: Las dos sillas de bar de 40 x 30 x 65 cm encajan perfectamente debajo del mostrador de la barra, por lo que el conjunto ahorra mucho espacio, incluso si compra 2 sillas más\n    Instalación sin obstáculos: La estructura simple de las sillas de bar y de la mesa de cocina, así como los tornillos del mismo tamaño, permiten un montaje rápido y sencillo\n    Qué hay en la caja: Mesa de bar y 2 taburetes de bar de nuestra Serie ALINRU para acentuar tu espacio vital, instrucciones intuitivas para un Fácil montaje, y una forma de crear el rincón para el desayuno de tus sueños"
+        },
+        {
+            "product_id": 11,
+            "product_name": "Ventilador",
+            "section_id": 11,
+            "stock": 10,
+            "price": 25.47,
+            "photo": "ventilador-azul.jpeg",
+            "tags": [
+                "ventilador",
+                "sukasa"
+            ],
+            "supabase_id": "cc016326-bda0-4807-bed1-ab9ec949ce7d",
+            "detail": "Ventilador de pedestal."
+        },
+        {
+            "product_id": 13,
+            "product_name": "Tv Smart 4K Toshiba 65",
+            "section_id": 10,
+            "stock": 50,
+            "price": 990.19,
+            "photo": "https://statics.tipti.market/product-media/edd92a5c-6637-467c-94be-31d1c745afbc.jpg",
+            "tags": [
+                "Procesador: MT9602EAATGC",
+                "Sistema Operativo: VIDAA",
+                "Resolución: 3840X2160",
+                "Brillo: 400 nit"
+            ],
+            "supabase_id": "b9949675-0379-41df-8df5-79cf8afb8c6f",
+            "detail": "Procesador: MT9602EAATGC - Sistema Operativo: VIDAA- Resolución: 3840X2160- Brillo: 400 nit"
+        },
+        {
+            "product_id": 12,
+            "product_name": "Juego de Sala Paris Turquesa Style Deco Style&Kids Deco Style&kids",
+            "section_id": 11,
+            "stock": 5,
+            "price": 1012.49,
+            "photo": "https://statics.tipti.market/product-media/f047547a-b713-4656-a368-38e92ccc1903.jpg",
+            "tags": [
+                "Juego de Sala",
+                "Paris",
+                "Turquesa",
+                "Style",
+                "Deco",
+                "Style&kids"
+            ],
+            "supabase_id": "2c582a6b-37c5-4806-a2d2-ec5c2f80df4d",
+            "detail": "Juego de Sala Paris Turquesa Style Deco Style&kids"
+        }
+    ]
+
+    products = JSON.stringify(products);
+
+    const chatCompletion = await openai.chat.completions.create({
+        messages: [{
+            role: 'user', 
+            content: `Based on this data ${products} answer the following\nPrompt: ${prompt}`
+        }],
+        model: 'gpt-3.5-turbo',
+    })
+    
+    return chatCompletion.choices[0].message.content;
+}
