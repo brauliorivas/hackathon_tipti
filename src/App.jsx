@@ -3,10 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from "./routes/Home";
 import Explore from "./routes/Explore";
 import ChatBot from "./routes/ChatBot";
-import Store from "./routes/Store";
 import StoreHandler from "./util/StoreHandler";
-
-import Spline from '@splinetool/react-spline';
 
 function App() {
   return (
