@@ -8,6 +8,7 @@ import CartContext from "./context/Cart";
 import { useState } from "react";
 import Cart from "./routes/Cart";
 import Checkout from "./routes/Checkout";
+import Store from "./routes/Store";
 
 function App() {
   const [cart, setCart] = useState([]);

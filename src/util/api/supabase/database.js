@@ -24,6 +24,11 @@ function SupabaseController() {
         
     }
 
+    async function getStores() {
+        let { data, error } = await supabase.from('store').select('*');
+        return data;
+    }
+
     function getImage(imagePath) {
         const { data } = supabase.storage.from('images').getPublicUrl(imagePath);
         return data.publicUrl;
@@ -33,6 +38,7 @@ function SupabaseController() {
         getStoreById,
         getImage,
         getProducts,
+        getStores,
     }
 }
 
