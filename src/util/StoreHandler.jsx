@@ -5,7 +5,7 @@ import '../styles/StoreHandler.css'
 import SupabaseController from "./api/supabase/database";
 import { useState, useEffect } from "react";
 
-function StoreHandler(props) {
+function StoreHandler() {
     const [store, setStore] = useState(null);
     const [imageUrl, setImageUrl] = useState(null);
     const { storeId } = useParams();
@@ -31,7 +31,7 @@ function StoreHandler(props) {
             {store ? 
                 <div className="store">
                     <h1>{store.store_name}</h1> 
-                    <img src={imageUrl} alt="store logo" />
+                    <img src={imageUrl} alt="store logo" style={{ width: 100 }} />
                 </div>
                 : null
             }

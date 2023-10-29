@@ -1,6 +1,6 @@
-import Scene, { useEffect } from '../components/Scene"';
+import { useEffect } from 'react';
 
-function PayphoneComponent() {
+function PayphoneComponent({ total }) {
     useEffect(() => {
         const script1 = document.createElement('script');
         script1.src = 'https://pay.payphonetodoesposible.com/api/button/js?appId=EYbpoTOyJ0W3XA80HMJP0w';
@@ -23,7 +23,7 @@ function PayphoneComponent() {
                         //Se ingresan los datos de la transaccion ej. monto, impuestos, etc
         
                         return actions.prepare({
-                            amount: 100,
+                            amount: ${total},
                             amountWithoutTax: 100,
                             currency: "USD",
                             clientTransactionId: "pruebasexpress",
