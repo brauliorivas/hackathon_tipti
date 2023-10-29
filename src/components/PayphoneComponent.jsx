@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
 
 function PayphoneComponent({ total }) {
+    console.log(total)
+
     useEffect(() => {
         const script1 = document.createElement('script');
         script1.src = 'https://pay.payphonetodoesposible.com/api/button/js?appId=EYbpoTOyJ0W3XA80HMJP0w';
@@ -23,7 +25,7 @@ function PayphoneComponent({ total }) {
                         //Se ingresan los datos de la transaccion ej. monto, impuestos, etc
         
                         return actions.prepare({
-                            amount: ${total},
+                            amount: ${parseInt(total * 100)},
                             amountWithoutTax: 100,
                             currency: "USD",
                             clientTransactionId: "pruebasexpress",

@@ -259,7 +259,7 @@ async function getJsonData() {
 }
 
 async function importProducst() {
-    const data = await getJsonData();
+    const data = products;
 
     let batcher = client.batch.objectsBatcher();
     let counter = 0;
